@@ -1,0 +1,492 @@
+/*fonts*/
+/*...............*/
+/*............................*/
+
+@font-face {
+    font-family: Zen Old Micho;
+    src: url(fonts/ZenOldMincho-Regular.ttf);
+}
+@font-face {
+    font-family: Zen Kaku;
+    src: url(fonts/ZenKakuGothicAntique-Regular.ttf);
+}
+@font-face {
+    font-family: Handwriting;
+    src: url(fonts/DawningofaNewDay-Regular.ttf);
+}
+@font-face {
+    font-family: Marker;
+    src: url(fonts/PermanentMarker-Regular.ttf);
+}
+@font-face {
+  font-family: Grape;
+  src: url(fonts/GrapeNuts-Regular.ttf);
+}
+
+/*header*/
+/*.............*/
+/*............................*/
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+  }
+
+h1{
+    font-family: 'Zen Old Micho';
+    font-weight: 800;
+    font-size: 2.5vw;
+    line-height: 1;
+    color: #d1cec7;
+    text-align: left;
+    position:absolute;
+    top: 60px;
+    padding: 0;
+    margin: 0; 
+    margin-left:2vw;
+}
+
+/*navigation bar*/
+/*.......................*/
+/*.......................................*/
+/*.........................................................*/
+
+body{
+	font-family: 'Handwriting', sans-serif;
+	font-weight: 300;
+	font-size: 15px;
+	line-height: 1.7;
+	color: #ececee;
+	background-color: #1f2029;
+ 
+}
+.section-center{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  z-index: 6;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked){
+  position: absolute;
+  left: -9999px;
+}
+.menu-icon:checked + label,
+.menu-icon:not(:checked) + label{
+  position: fixed;
+  top: 63px;
+  right: 55px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+.menu-icon:checked + label:before,
+.menu-icon:not(:checked) + label:before{
+  position: absolute;
+  content: '';
+  display: block;
+  width: 30px;
+  height: 20px;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  border-top: 2px solid #ececee;
+  border-bottom: 2px solid #ececee;
+  transition: border-width 100ms 1500ms ease, 
+              top 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1),
+              height 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1), 
+              background-color 200ms ease,
+              transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.menu-icon:checked + label:after,
+.menu-icon:not(:checked) + label:after{
+  position: absolute;
+  content: '';
+  display: block;
+  width: 22px;
+  height: 2px;
+  z-index: 20;
+  top: 10px;
+  right: 4px;
+  background-color: #d1cec7;
+  margin-top: -1px;
+  transition: width 100ms 1750ms ease, 
+              right 100ms 1750ms ease,
+              margin-top 100ms ease, 
+              transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.menu-icon:checked + label:before{
+  top: 10px;
+  transform: rotate(45deg);
+  height: 2px;
+  background-color: #d1cec7;
+  border-width: 0;
+  transition: border-width 100ms 340ms ease, 
+              top 100ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
+              height 100ms 300ms cubic-bezier(0.23, 1, 0.32, 1), 
+              background-color 200ms 500ms ease,
+              transform 200ms 1700ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.menu-icon:checked + label:after{
+  width: 30px;
+  margin-top: 0;
+  right: 0;
+  transform: rotate(-45deg);
+  transition: width 100ms ease,
+              right 100ms ease,  
+              margin-top 100ms 500ms ease, 
+              transform 200ms 1700ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav{
+  position: fixed;
+  top: 33px;
+  right: 30px;
+  display: block;
+  width: 80px;
+  height: 80px;
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+  overflow: hidden;
+  box-shadow: 0 8px 30px 0 rgba(0,0,0,0.3);
+  background-color: #005D7D;
+  animation: border-transform 7s linear infinite;
+  transition: top 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),  
+              right 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),
+              transform 250ms 1100ms ease,
+              width 650ms 400ms cubic-bezier(0.23, 1, 0.32, 1),
+              height 650ms 400ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+@keyframes border-transform{
+    0%,100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; } 
+  14% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 
+  28% { border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%; } 
+  42% { border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%; } 
+  56% { border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%; } 
+  70% { border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%; } 
+  84% { border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; } 
+}
+
+.menu-icon:checked ~ .nav {
+  animation-play-state: paused;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: 200%;
+  height: 200%;
+  transition: top 350ms 700ms cubic-bezier(0.23, 1, 0.32, 1),  
+              right 350ms 700ms cubic-bezier(0.23, 1, 0.32, 1),
+              transform 250ms 700ms ease,
+              width 750ms 1000ms cubic-bezier(0.23, 1, 0.32, 1),
+              height 750ms 1000ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav ul{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  z-index: 6;
+  text-align: center;
+  transform: translateY(-50%);
+  list-style: none;
+}
+.nav ul li{
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 10px 0;
+  text-align: center;
+  list-style: none;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(30px);
+  transition: all 250ms linear;
+}
+.nav ul li:nth-child(1){
+  transition-delay: 200ms;
+}
+.nav ul li:nth-child(2){
+  transition-delay: 150ms;
+}
+.nav ul li:nth-child(3){
+  transition-delay: 100ms;
+}
+.nav ul li:nth-child(4){
+  transition-delay: 50ms;
+}
+.nav ul li a{
+  font-family: "Zen Old Micho";
+  font-size: 9vh;
+  text-transform: uppercase;
+  line-height: 1.2;
+  font-weight: 800;
+  display: inline-block;
+  position: relative;
+  color: #d1cec7;
+  transition: all 250ms linear;
+}
+.nav ul li a:hover{
+  text-decoration: none;
+  color: #B87555;
+}
+.nav ul li a:hover:after{
+  width: 100%;
+}
+
+
+.menu-icon:checked ~ .nav  ul li {
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 350ms ease,
+              transform 250ms ease;
+}
+.menu-icon:checked ~ .nav ul li:nth-child(1){
+  transition-delay: 1400ms;
+}
+.menu-icon:checked ~ .nav ul li:nth-child(2){
+  transition-delay: 1480ms;
+}
+.menu-icon:checked ~ .nav ul li:nth-child(3){
+  transition-delay: 1560ms;
+}
+.menu-icon:checked ~ .nav ul li:nth-child(4){
+  transition-delay: 1640ms;
+}
+.logo {
+	position: absolute;
+	top: 60px;
+	left: 50px;
+	display: block;
+	z-index: 11;
+	transition: all 250ms linear;
+}
+.logo img {
+	height: 26px;
+	width: auto;
+	display: block;
+}
+@media screen and (max-width: 991px) {
+  .menu-icon:checked + label,
+  .menu-icon:not(:checked) + label{
+    right: 55px;
+  }
+  .logo {
+    left: 30px;
+  }
+  .nav{
+    right: 30px;
+  }
+  .nav ul li a{
+    font-size: 8vh;
+  }
+}
+/***********signature logo top of screen**********/
+/****************.................................***************/
+.sign img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: auto;
+    margin-top: 10px;
+    width: 120px;
+}
+
+/*Homepage box*/
+/*..................*/
+/*................................*/
+h2{
+    font-family: "Zen Old Mincho";
+    letter-spacing: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 45vw;
+    height: auto;
+    text-align: center;
+    font-size: 4vw;
+    color: #005D7D;
+}
+h4{
+    font-family: "Grape";
+    width: 45vw;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    display: block;
+    color: #005D7D;
+    font-size: 3vw;
+}
+h5{
+    font-family: "Grape";
+    width: 42vw;
+    margin-left: 25vw;
+    margin-right: auto;
+    text-align: left;
+    display: block;
+    color: #005D7D;
+    font-size: 3vw;
+}
+h6{
+    font-family: "Grape";
+    width: 55vw;
+    margin-left: 24vw;
+    margin-right: auto;
+    text-align: center;
+    display: block;
+    color: #005D7D;
+    font-size: 3vw;
+}
+.box{
+    background-color: #d1cec7;
+    z-index: 0;
+}
+.color-box {
+    background-color: #ebe3d3; 
+    padding: 20px;
+    max-width: 80vw;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: auto;
+    box-shadow: 0 8px 30px 0 rgba(0,0,0,0.3);
+  }
+
+.text {
+    color: white; 
+    font-size: 24px;
+  }
+
+.content {
+  display: block;
+  position: relative;
+}
+
+.content--home .images {
+  right: 0;
+  top: 0;
+}
+.content--profession .images {
+  left: 0;
+  bottom:  0;
+}
+
+.content--home .image:nth-child(1) {
+  position: absolute;
+  right: 4vw;
+  top: -3vw;
+  transform: rotate(8deg);
+  transition: transform .5s ease-in-out;
+}
+
+.content--home .image:nth-child(2) {
+  position: absolute;
+  transform: rotate(-9deg);
+  right: -4vw;
+  top: -7vw;
+  transition: transform .5s ease-in-out;
+}
+
+.content--home .image:nth-child(1):hover{
+  transform: rotate(12deg);
+}
+
+.content--home .image:nth-child(2):hover{
+  transform: rotate(-13deg);
+} 
+.images {
+  position: absolute;
+}
+
+.image {
+  height: auto;
+  max-width: 12vw;
+}
+
+.image--polaroid2 {
+  height: auto;
+  max-width: 12vw;
+  margin-left: 4vw;
+  transform: rotate(24.08deg);
+  box-shadow: 0 8px 30px 0 rgba(0,0,0,0.3); 
+  transition: transform .5s ease-in-out;
+}
+.image--polaroid2:hover {
+transform: rotate(30deg);
+}
+
+.image--lighthouse {
+  position: absolute;
+  max-width: 14vw;
+  top: -30vw;
+  left: -6vw;
+}
+.image--seashells{
+  max-width: 27vw;
+  position: absolute;
+  top: 15vw;
+  left: -8vw;  
+}
+
+.content--note img{
+  position: absolute;
+  max-width: 40vw;
+  left: 7vw;
+  top: -4vw;
+  filter: saturate(-15);
+}
+.naturalpool img{
+  height: auto;
+  max-width: 12vw;
+  margin-left: 55vw;
+  top: -90vw;
+  transform: rotate(9deg);
+  box-shadow: 0 8px 30px 0 rgba(0,0,0,0.3);
+  transition: transform .7s ease-in-out;
+}
+.naturalpool img:hover {
+  transform: rotate(12deg);
+}
+.andicuri img{
+  height: auto;
+  max-width: 12vw;
+  margin-left: 65vw;
+  margin-top: -1000vh;
+  transform: rotate(-3deg);
+  box-shadow: 0 8px 30px 0 rgba(0,0,0,0.3);
+  transition: transform .7s ease-in-out;
+}
+.andicuri img:hover {
+  transform: rotate(6deg);
+}
+.dragonfruit img{
+  max-width: 9vw;
+  transform: rotate(20deg);
+  margin-left: 72vw;
+  margin-top: -16vh;
+  transition: transform .7s ease-in-out;
+}
+.dragonfruit img:hover {
+  transform: rotate(12deg);
+}
