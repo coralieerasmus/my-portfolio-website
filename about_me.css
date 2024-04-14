@@ -1,58 +1,8 @@
-/*fonts*/
-/*...............*/
-/*............................*/
-
-@font-face {
-    font-family: Zen Old Micho;
-    src: url(fonts/ZenOldMincho-Regular.ttf);
-}
-@font-face {
-    font-family: Zen Kaku;
-    src: url(fonts/ZenKakuGothicAntique-Regular.ttf);
-}
-@font-face {
-    font-family: Handwriting;
-    src: url(fonts/DawningofaNewDay-Regular.ttf);
-}
-@font-face {
-    font-family: Marker;
-    src: url(fonts/PermanentMarker-Regular.ttf);
-}
-@font-face {
-  font-family: Grape;
-  src: url(fonts/GrapeNuts-Regular.ttf);
-}
-
-/*header*/
-/*.............*/
-/*............................*/
 
 body{
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-  }
-
-h1{
-    font-family: 'Zen Old Micho';
-    font-weight: 800;
-    font-size: 2.5vw;
-    line-height: 1;
-    color: #d1cec7;
-    text-align: left;
-    position:absolute;
-    top: 60px;
-    padding: 0;
-    margin: 0; 
-    margin-left:2vw;
-}
-
-/*navigation bar*/
-/*.......................*/
-/*.......................................*/
-/*.........................................................*/
-
-body{
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
 	font-family: 'Handwriting', sans-serif;
 	font-weight: 300;
 	font-size: 15px;
@@ -63,21 +13,8 @@ body{
   height: 100vh;
   background-size: cover; /*to fully cover the screen*/
 }
-.section-center{
-  position: absolute;
-  top: 50%;
-  left: 0;
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  z-index: 6;
-  text-align: center;
-  transform: translateY(-50%);
-}
 
-
-/*Homepage box*/
+/*homepage box*/
 /*..................*/
 /*................................*/
 h2{
@@ -127,6 +64,8 @@ h6{
     background-color: #d1cec7;
     z-index: 0;
 }
+
+/*container for about me page*/
 .color-box {
   background-image: url(img/backgrounds/paper-background-2.jpg);
   padding: 20px;
@@ -140,11 +79,7 @@ h6{
   border-radius: 5vw;
   }
 
-.text {
-    color: white; 
-    font-size: 24px;
-  }
-
+/*for each section*/
 .content {
   display: block;
   position: relative;
