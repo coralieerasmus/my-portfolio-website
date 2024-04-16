@@ -167,5 +167,5 @@ transform: rotate(30deg);
   transition: transform .7s ease-in-out;
 }
 .andicuri img:hover {
-  transform: rotate(-6deg);
+  transform: rotate(-6deg); 
 }
