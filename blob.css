@@ -1,0 +1,13 @@
+.box {
+    width: 350px;
+    height: 588px;
+  }
+  
+  .box .ellipse {
+    position: fixed;
+    width: 337px;
+    height: 575px;
+    top: 0;
+    left: 0;
+    display: block;
+  }

@@ -9,7 +9,7 @@ body{
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 30vw; /* Adjust as needed */
+    width: 30vw; /* adjust as needed */
   }
  /* center the images */
  .image-container {
@@ -28,7 +28,7 @@ body{
 
    /* add spacing between images */
    .image-container .image-wrapper {
-    margin: 10px; /* Adjust as needed */
+    margin: 10px; /* adjust as needed */
     text-align: center;
   }
 
