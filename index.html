@@ -1,22 +1,58 @@
 <!DOCTYPE html>
-<html>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <head>
-        <link href = "index.css"
-        type = "text/css"
-        rel = "stylesheet" >
-        <title>Coralie Erasmus</title>
-    </head>
-    <!----------to set the background image------------>
-    <a><body style="background-image:url(img/backgrounds/homepage-background.JPG);"></a>
-        <!-----logo in center of screen------>
-        <body>
-            <!-- image 1 -->
-            <img id="image1" class="flash-img" src="img/homepage/homepage-logo.png" alt="Image 1">
-            <!-- image 2 -->
-            <img id="image2" class="flash-img" src="img/homepage/homepage-logo-upsidedown.png" alt="Image 2">
-            <!-----javascript for logo in center----->
-            <script defer src="index.js"></script>
-        </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="index.css" type="text/css" rel="stylesheet">
+  <title>Coralie Erasmus</title>
+  <style>
+    /* CSS styles remain the same as before */
+    .fade-in-image {
+      opacity: 0; /* Initially hide the image */
+      transition: opacity 0.5s ease; /* Smooth transition for opacity change */
+      position: absolute; /* Position the image over the shape */
+    }
+  </style>
+</head>
+<a><body style="background-image:url(img/backgrounds/new-enter-page.png);"></a>
+<body>
+  <div class="name-container">
+    <div class="name"></div>
+  </div>
+  <div class="shape-container">
+    <!-- Shapes with images specified by src attribute -->
+    <div class="shape morph"><img src="img/polaroids/learning-outcome-1.png" class="fade-in-image"></div>
+    <div class="shape morph"><img src="img/polaroids/learning-outcome-2.png" class="fade-in-image"></div>
+    <div class="shape morph"><img src="img/polaroids/learning-outcome-3.png" class="fade-in-image"></div>
+    <div class="shape morph"><img src="img/polaroids/learning-outcome-4.png" class="fade-in-image"></div>
+    <div class="shape morph"><img src="img/polaroids/learning-outcome-5.png" class="fade-in-image"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.shape').forEach((shape, index) => {
+        shape.addEventListener('animationend', function() {
+          const img = new Image(); // Create new image element
+          img.src = shape.querySelector('img').src; // Set the source of the image
+          img.classList.add('fade-in-image');
+          img.style.width = shape.offsetWidth + 'px'; // Set image width to shape width
+          img.style.height = shape.offsetHeight + 'px'; // Set image height to shape height
+          img.style.top = shape.getBoundingClientRect().top + 'px'; // Set image top position to shape top position
+          img.style.left = shape.getBoundingClientRect().left + 'px'; // Set image left position to shape left position
+          shape.style.opacity = 0; // Hide the shape
+          shape.parentElement.appendChild(img); // Add image to the container
+          setTimeout(() => {
+            img.style.opacity = 1; // Show the image after a short delay
+          }, 100);
+           // Fade out the body element
+           document.body.style.opacity = '1';
+          // Redirect to another page after the fade out
+          setTimeout(() => {
+            window.location.href = 'main.html';
+          }, 500); // Change the delay according to the transition duration
+        });
+      });
+    });
+  </script>
+</body>
 </html>

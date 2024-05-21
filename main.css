@@ -1,0 +1,105 @@
+/* Adjust the background */
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover; /* To fully cover the screen */
+    margin: 0; /* Remove default margin */
+    justify-content: center;
+    align-items: center;
+}
+
+.name-container {
+    position: absolute;
+    width: 26vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0; /* Final horizontal position */
+    top: 0; /* Final vertical position */
+  }
+
+.name {
+    position: absolute;
+    width: 26vw; /* Initial width */
+    height: 10vh; /* Initial height */
+    background-image: url(img/polaroids/big-name.png); /* Specify your image URL */
+    background-size: contain; /* Make the background image responsive */
+    background-repeat: no-repeat; /* Prevent image duplication */
+    
+  }
+
+/* Center the images */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Align items from the top */
+    height: auto;
+    width: 100%;
+    position: relative;
+    gap: 2vw; /* Space between images */
+    margin-top: 6vw; /* Move all images down */
+    cursor: pointer;
+}
+
+/* Add spacing between images */
+.image-wrapper {
+    text-align: center;
+    flex: 1; /* Allow images to scale flexibly */
+    max-width: 12vw; /* Maximum size reduced */
+}
+
+/* Style for image text */
+.image-container p {
+    margin-top: 5px;
+    font-size: 2vw; /* Responsive font size reduced */
+    color: #EBE4CD;
+    font-family: Sahitya;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: #EBE4CD;
+}
+
+.image-wrapper img {
+    transition: transform .3s ease-in-out; /* Allows smooth transition during hover effect */
+    width: 100%; /* Let the image take the full width of the wrapper */
+    height: 30vw;
+}
+
+/* Hover effect to move the image up */
+.image-wrapper img:hover {
+    transform: translateY(-2vw); /* Move the image up */
+}
+
+/* Positioning for the images */
+.image-wrapper:nth-child(1) {
+    --horizontal-offset: -30vw;
+    --vertical-offset: 0px;
+}
+
+.image-wrapper:nth-child(2) {
+    --horizontal-offset: -15vw;
+    --vertical-offset: 20px;
+}
+
+.image-wrapper:nth-child(3) {
+    --horizontal-offset: 0vw;
+    --vertical-offset: 0px;
+}
+
+.image-wrapper:nth-child(4) {
+    --horizontal-offset: 15vw;
+    --vertical-offset: 20px;
+    width: 369px;
+}
+
+.image-wrapper:nth-child(5) {
+    --horizontal-offset: 30vw;
+    --vertical-offset: 0px;
+}
+
+/* lower images 2 and 4 */
+.image-container .image-wrapper:nth-child(2),
+.image-container .image-wrapper:nth-child(4) {
+  margin-top: 5vw; 
+}

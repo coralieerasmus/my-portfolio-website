@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="index.css" type="text/css" rel="stylesheet">
+  <title>Coralie Erasmus1</title>
+  <style>
+    /* General Body Style */
+    body {
+      margin: 0;
+      font-family: 'Handwriting', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #ececee;
+      background-color: #1f2029;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 20px;
+      z-index: 10; /* Ensure it is above other content */
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #007BFF;
+    }
+
+    /* Section Styles */
+    .section {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    #section1 {
+      height: 100vh;
+      width: 90vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #section2 {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url(img/backgrounds/aboutme-background.png);
+      background-size: cover;
+    }
+
+    /* Name Container */
+    .name-container {
+      width: 97vw;
+      height: 97vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 6; /* Ensure it is above the shapes */
+    }
+
+    .name {
+      width: 50vw; /* Initial width */
+      height: 20vh; /* Initial height */
+      background-image: url(img/polaroids/big-name.png); /* Specify your image URL */
+      background-size: contain; /* Make the background image responsive */
+      background-position: center;
+      background-repeat: no-repeat; /* Prevent image duplication */
+      transition: all 2s ease; /* Transition for smooth size change */
+      animation: move 3s forwards; /* Animation for movement */
+      animation-delay: 3s;
+    }
+
+    @keyframes move {
+      0% {
+        width: 50vw; /* Initial width */
+        height: 20vh; /* Initial height */
+        left: 50%; /* Initial horizontal position */
+        top: 50%; /* Initial vertical position */
+        transform: translate(-50%, -50%); /* Center the image */
+      }
+      100% {
+        width: 26vw; /* Final width */
+        height: 10vh; /* Final height */
+        left: 0; /* Final horizontal position */
+        top: 0; /* Final vertical position */
+        transform: translate(0, 0); /* Move to top left */
+      }
+    }
+
+    /* Shape Container */
+    .shape-container {
+      width: 100%;
+      height: 100%;
+      position: absolute; /* Ensure shapes stay in section 1 */
+    }
+
+    .shape {
+      position: absolute;
+      width: 10%;
+      padding-bottom: 10%; /* Maintain aspect ratio */
+      border-radius: 50%;
+      transition: all 2s ease;
+      animation: morph 3s forwards;
+    }
+
+    .shape:nth-child(1) {
+      background-color: #A78096; /* Red */
+      top: 20%;
+      left: 30%;
+    }
+
+    .shape:nth-child(2) {
+      background-color: #9EAA9C; /* Green */
+      top: 40%;
+      left: 60%;
+    }
+
+    .shape:nth-child(3) {
+      background-color: #F8976D; /* Blue */
+      top: 60%;
+      left: 40%;
+    }
+
+    .shape:nth-child(4) {
+      background-color: #EBB76E; /* Yellow */
+      top: 30%;
+      left: 70%;
+    }
+
+    .shape:nth-child(5) {
+      background-color: #D57866; /* Pink */
+      top: 50%;
+      left: 50%;
+    }
+
+    @keyframes morph {
+      0% {
+        width: 10%;
+        padding-bottom: 10%;
+        border-radius: 50%;
+      }
+      100% {
+        width: 12%;
+        padding-bottom: 30%; /* Maintain aspect ratio */
+        border-radius: 109px;
+        top: calc(50% + var(--vertical-offset));
+        left: calc(50% + var(--horizontal-offset));
+        transform: translate(-50%, -50%);
+        margin-left: 20px; /* Add margin for spacing */
+        margin-right: 20px; /* Add margin for spacing */
+      }
+    }
+
+    .shape:nth-child(1) {
+      --horizontal-offset: -30vw;
+      --vertical-offset: 0px;
+    }
+
+    .shape:nth-child(2) {
+      --horizontal-offset: -15vw;
+      --vertical-offset: 20px;
+    }
+
+    .shape:nth-child(3) {
+      --horizontal-offset: 0vw;
+      --vertical-offset: 0px;
+    }
+
+    .shape:nth-child(4) {
+      --horizontal-offset: 15vw;
+      --vertical-offset: 20px;
+    }
+
+    .shape:nth-child(5) {
+      --horizontal-offset: 30vw;
+      --vertical-offset: 0px;
+    }
+
+    .morph {
+      animation-delay: 3s;
+    }
+
+    .fade-in-image {
+      opacity: 0; /* Initially hide the image */
+      transition: opacity 0.5s ease, transform 0.3s ease; /* Smooth transition for opacity and transform change */
+      position: absolute; /* Position the image over the shape */
+    }
+
+    .fade-in-image:hover {
+      transform: translateY(-5px); /* Move image up slightly on hover */
+    }
+
+    /* Section 2 Content */
+    #section2-content {
+      width: 100vw;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .color-box {
+      background-image: url(img/backgrounds/paper-background-2.jpg);
+      padding: 20px;
+      max-width: 60vw;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      height: auto;
+      box-shadow: 0 8px 30px 0 rgba(0,0,0,0.3);
+      border-radius: 5vw;
+    }
+
+    h2 {
+      font-family: "Zen Old Mincho";
+      letter-spacing: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      max-width: 45vw;
+      height: auto;
+      text-align: center;
+      font-size: 4vw;
+      color: black;
+    }
+
+    h4 {
+      font-family: "Garamond";
+      width: 40vw;
+      margin-left: 5vw;
+      margin-right: auto;
+      text-align: left;
+      display: block;
+      color: black;
+      font-size: 2.5vw;
+    }
+
+    h5 {
+      font-family: "Garamond";
+      width: 35vw;
+      margin-top: 6vw;
+      margin-left: 13vw;
+      margin-right: auto;
+      text-align: left;
+      display: block;
+      color: black;
+      font-size: 2.3vw;
+    }
+
+    h6 {
+      font-family: "Garamond";
+      width: 55vw;
+      margin-left: 3vw;
+      margin-right: auto;
+      text-align: center;
+      display: block;
+      color: black;
+      font-size: 2.5vw;
+    }
+
+    .content {
+      display: block;
+      position: relative;
+    }
+
+    .content--home .images {
+      right: 0;
+      top: 0;
+    }
+
+    .content--profession .images {
+      left: 0;
+      bottom: 0;
+    }
+
+    .content--home .image:nth-child(1) {
+      position: absolute;
+      right: 4vw;
+      top: -3vw;
+      transform: rotate(8deg);
+      transition: transform .5s ease-in-out;
+    }
+
+    .content--home .image:nth-child(2) {
+      position: absolute;
+      transform: rotate(-9deg);
+      right: -4vw;
+      top: -7vw;
+      transition: transform .5s ease-in-out;
+    }
+
+    .content--home .image:nth-child(1):hover {
+      transform: rotate(12deg);
+    }
+
+    .content--home .image:nth-child(2):hover {
+      transform: rotate(-13deg);
+    }
+
+    .images {
+      position: absolute;
+    }
+
+    .image {
+      height: auto;
+      max-width: 12vw;
+    }
+
+    .image--polaroid2 {
+      height: auto;
+      max-width: 12vw;
+      margin-left: -4vw;
+      transform: rotate(24.08deg);
+      box-shadow: 0 8px 30px 0 rgba(0,0,0,0.3);
+      transition: transform .5s ease-in-out;
+    }
+
+    .image--polaroid2:hover {
+      transform: rotate(30deg);
+    }
+
+    .content--note img {
+      position: absolute;
+      max-width: 40vw;
+      left: 2vw;
+      top: -4vw;
+      filter: saturate(-15);
+    }
+
+    .naturalpool img {
+      height: auto;
+      max-width: 12vw;
+      margin-left: 45vw;
+      top: -90vw;
+      transform: rotate(9deg);
+      box-shadow: 0 8px 30px 0 rgba(0,0,0,0.3);
+      transition: transform .7s ease-in-out;
+    }
+
+    .naturalpool img:hover {
+      transform: rotate(12deg);
+    }
+
+    .andicuri img {
+      height: auto;
+      max-width: 12vw;
+      margin-left: 54vw;
+      margin-top: -1000vh;
+      transform: rotate(-3deg);
+      box-shadow: 0 8px 30px 0 rgba(0,0,0,0.3);
+      transition: transform .7s ease-in-out;
+    }
+
+    .andicuri img:hover {
+      transform: rotate(-6deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="#section1">Home</a>
+    <a href="#section2-content">About Me</a>
+    <a href="#section3">Gallery</a>
+  </div>
+
+  <div id="section1" class="section">
+    <div class="name-container">
+      <div class="name"></div>
+    </div>
+    <div class="shape-container">
+      <div class="shape morph"><img src="img/polaroids/learning-outcome-1.png" class="fade-in-image"></div>
+      <div class="shape morph"><img src="img/polaroids/learning-outcome-2.png" class="fade-in-image"></div>
+      <div class="shape morph"><img src="img/polaroids/learning-outcome-3.png" class="fade-in-image"></div>
+      <div class="shape morph"><img src="img/polaroids/learning-outcome-4.png" class="fade-in-image"></div>
+      <div class="shape morph"><img src="img/polaroids/learning-outcome-5.png" class="fade-in-image"></div>
+    </div>
+  </div>
+
+  <div id="section2-content" class="section">
+    <div class="color-box">
+      <h2>HERE IS A BIT ABOUT ME</h2>
+      <!--area 1 text-->
+      <div class="content content--home">
+        <h4>I come from a teensy weensy little island in the Caribbean, Aruba</h4>
+        <!--area 1 images-->
+        <div class="images">
+          <img class="image image--polaroid" src="img/polaroids/dosplaya-polaroid.png">
+          <img class="image image--polaroid" src="img/polaroids/pelican-polaroid.png">
+        </div>
+      </div>
+      <!---area 2 text-->
+      <div class="content content--profession">
+        <h5>I'm currently a media & design student trying to build a portfolio.
+          I've always been someone that likes creating things, and I’ve always loved anything to do with art.</h5>
+        <!--area 2 image-->
+        <div class="images">
+          <img class="image image--polaroid2" src="img/polaroids/marriott-polaroid.png">
+        </div>
+      </div>
+      <!---area 3 text-->
+      <div class="content content--expectations">
+        <h6>What you can expect from me on here is a gallery of everything I have made including projects I’ve done.
+          Including all the pictures seen here.</h6>
+      </div>
+      <!--area 3 images-->
+      <div class="content content--note">
+        <img src="img/polaroids/about-me-note.png">
+      </div>
+      <div class="naturalpool">
+        <img src="img/polaroids/naturalpool-polaroid.png">
+      </div>
+      <div class="andicuri">
+        <img src="img/polaroids/andicuri-polaroid.png">
+      </div>
+    </div>
+  </div>
+
+  <div id="section3" class="section">
+    <!-- Content for Gallery or other sections can go here -->
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.shape').forEach((shape, index) => {
+        shape.addEventListener('animationend', function() {
+          const img = new Image(); // Create new image element
+          img.src = shape.querySelector('img').src; // Set the source of the image
+          img.classList.add('fade-in-image');
+          img.style.width = shape.offsetWidth + 'px'; // Set image width to shape width
+          img.style.height = shape.offsetHeight + 'px'; // Set image height to shape height
+          img.style.top = shape.getBoundingClientRect().top + 'px'; // Set image top position to shape top position
+          img.style.left = shape.getBoundingClientRect().left + 'px'; // Set image left position to shape left position
+          shape.style.opacity = 0; // Hide the shape
+          shape.parentElement.appendChild(img); // Add image to the container
+          setTimeout(() => {
+            img.style.opacity = 1; // Show the image after a short delay
+          }, 100);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="index.css" type="text/css" rel="stylesheet">
+  <title>Coralie Erasmus2</title>
+  <style>
+    /* CSS styles remain the same as before */
+    .fade-in-image {
+      opacity: 0; /* Initially hide the image */
+      transition: opacity 0.5s ease; /* Smooth transition for opacity change */
+      position: absolute; /* Position the image over the shape */
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 20px;
+      z-index: 10;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #007BFF;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <a href="#section1">Section 1</a>
+    <a href="#section2">Section 2</a>
+    <a href="other_page.html">Other Page</a>
+  </div>
+
+  <!-- Section 1 -->
+  <div id="section1" class="section">
+    <!-- Name Container -->
+    <div class="name-container">
+      <div class="name"></div>
+    </div>
+
+    <!-- Shape Container -->
+    <div class="shape-container">
+      <!-- Shapes with animations -->
+      <div class="shape morph"></div>
+      <div class="shape morph"></div>
+      <div class="shape morph"></div>
+      <div class="shape morph"></div>
+      <div class="shape morph"></div>
+    </div>
+  </div>
+
+
+  <!-- JavaScript for shape animations and image transitions -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.shape').forEach((shape, index) => {
+        shape.addEventListener('animationend', function() {
+          // Redirect to another page
+          window.location.href = 'other_page.html';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

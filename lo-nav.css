@@ -9,7 +9,7 @@ body{
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 30vw; /* adjust as needed */
+    width: 30vw; 
   }
  /* center the images */
  .image-container {
@@ -17,13 +17,13 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap; /* allow images to wrap to the next line */
-    height: auto; /* adjust as needed */
+    height: auto;
   }
 
   /* lower images 2 and 4 */
   .image-container .image-wrapper:nth-child(2),
   .image-container .image-wrapper:nth-child(4) {
-    margin-top: 20vw; /* adjust as needed */
+    margin-top: 20vw; 
   }
 
    /* add spacing between images */
