@@ -1,77 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="index.css" type="text/css" rel="stylesheet">
-  <title>Coralie Erasmus2</title>
-  <style>
-    /* CSS styles remain the same as before */
-    .fade-in-image {
-      opacity: 0; /* Initially hide the image */
-      transition: opacity 0.5s ease; /* Smooth transition for opacity change */
-      position: absolute; /* Position the image over the shape */
-    }
-
-    /* Navigation Bar */
-    .navbar {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      gap: 20px;
-      z-index: 10;
-    }
-
-    .navbar a {
-      text-decoration: none;
-      color: #333;
-      font-size: 18px;
-      transition: color 0.3s ease;
-    }
-
-    .navbar a:hover {
-      color: #007BFF;
-    }
-  </style>
+    <link rel="stylesheet" href="shapes.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collapsible with Highlights</title>
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <div class="navbar">
-    <a href="#section1">Section 1</a>
-    <a href="#section2">Section 2</a>
-    <a href="other_page.html">Other Page</a>
-  </div>
-
-  <!-- Section 1 -->
-  <div id="section1" class="section">
-    <!-- Name Container -->
-    <div class="name-container">
-      <div class="name"></div>
+    <div class="container">
+        <div class="left-content">
+            <h1 class="title">Page Title</h1>
+            <p class="subtitle">Subtitle text goes here.</p>
+            
+            <!-- Collapsible Section -->
+            <div class="collapsible">
+                <button class="collapsible-btn">1</button>
+                <div class="collapsible-content">
+                    <p>This is compartment 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="highlight" id="highlight1">Highlight 1</span> and <span class="highlight" id="highlight2">Highlight 2</span>.</p>
+                </div>
+                <button class="collapsible-btn">2</button>
+                <div class="collapsible-content">
+                    <p>This is compartment 2. Duis aute irure <span class="highlight" id="highlight3">Highlight 3</span> in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+                <button class="collapsible-btn">3</button>
+                <div class="collapsible-content">
+                    <p>This is compartment 3. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <span class="highlight" id="highlight4">Highlight 4</span>.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Popup Images -->
+        <div class="right-content">
+            <div id="popup1" class="popup">
+                <img src="image1.jpg" alt="Image 1">
+            </div>
+            <div id="popup2" class="popup">
+                <img src="image2.jpg" alt="Image 2">
+            </div>
+            <div id="popup3" class="popup">
+                <img src="image3.jpg" alt="Image 3">
+            </div>
+            <div id="popup4" class="popup">
+                <img src="image4.jpg" alt="Image 4">
+            </div>
+        </div>
     </div>
 
-    <!-- Shape Container -->
-    <div class="shape-container">
-      <!-- Shapes with animations -->
-      <div class="shape morph"></div>
-      <div class="shape morph"></div>
-      <div class="shape morph"></div>
-      <div class="shape morph"></div>
-      <div class="shape morph"></div>
-    </div>
-  </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const coll = document.getElementsByClassName("collapsible-btn");
+            const pops = document.querySelectorAll(".popup");
 
+            for (let i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    const content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
 
-  <!-- JavaScript for shape animations and image transitions -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.shape').forEach((shape, index) => {
-        shape.addEventListener('animationend', function() {
-          // Redirect to another page
-          window.location.href = 'other_page.html';
+            document.querySelectorAll('.highlight').forEach(item => {
+                item.addEventListener('click', event => {
+                    pops.forEach(popup => popup.style.display = 'none'); // Hide all images
+                    const id = event.target.id.replace('highlight', 'popup');
+                    document.getElementById(id).style.display = 'block'; // Show the clicked image
+                });
+            });
+
+            pops.forEach(popup => {
+                popup.addEventListener('click', event => {
+                    event.target.style.display = 'none'; // Hide the image on click
+                });
+            });
         });
-      });
-    });
-  </script>
+    </script>
 </body>
 </html>

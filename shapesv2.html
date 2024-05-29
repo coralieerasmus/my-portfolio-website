@@ -1,299 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrolling Sections</title>
+    <title>Coralie Erasmus</title>
+    <link href="main.css" type="text/css" rel="stylesheet">
     <style>
-        /* Basic reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Ensure these styles are at the bottom of your existing CSS to prevent conflicts */
+        @font-face {
+            font-family: Raleway;
+            src: url(fonts/Raleway-Regular.ttf);
         }
 
-        /* Full height sections */
-        .section {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            transition: transform 0.6s ease-in-out;
+        @font-face {
+            font-family: League Spartan Med;
+            src: url(fonts/LeagueSpartan-Medium.ttf);
         }
 
-        /* Navigation bar */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(38, 50, 56, 0.5);
-            padding: 10px 0;
-            z-index: 10;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.5s ease-in-out;
-        }
-
-        .wrapHead {
-            width: 90%;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            width: 50px;
-            transition: width 0.5s ease-in-out;
-        }
-
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            margin: 0;
-        }
-
-        nav li {
-            margin: 0 10px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #e1e1e1;
-            transition: color 0.5s ease-in-out;
-        }
-
-        nav a:hover {
-            color: #bbb;
-        }
-
-        /* Section content */
-        .content {
-            text-align: center;
-        }
-
-        .content img {
-            max-width: 50%;
-            height: auto;
-        }
-
-        /* Colors for demonstration */
-        .section-1 {
-            background-color: #ff7f50;
-        }
-
-        .section-2 {
-            background-color: #87cefa;
-        }
-
-        .section-3 {
-            background-color: #3cb371;
-        }
-
-        .section-4 {
-            background-color: #dda0dd;
-        }
-
-        .section-5 {
-            background-color: #ffeb3b;
-        }
-
-        /* Ensure sections are stacked */
-        .section:not(.section-1) {
-            position: fixed;
-            top: 100vh;
-            width: 100%;
-            transform: translateY(100%);
+        @font-face {
+            font-family: Zen Old Micho;
+            src: url(fonts/ZenOldMincho-Regular.ttf);
         }
 
         /* Adjust the background */
         body {
-            width: 100vw;
-            height: 100vh;
-            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             margin: 0;
-            overflow: hidden;
+            width: 100vw;
+            height: auto;
+            background-size: cover;
+            /* To fully cover the screen */
+            background-size: contain;
+            /* Make the background image responsive */
         }
 
-        /* Center the images */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 30px;
+            background-color: #D9D2BE;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .name-container {
+            flex: 1;
+        }
+
+        .nav-bar {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: color 0.3s;
+            font-family: Raleway;
+        }
+
+        .nav-bar a:hover {
+            color: #007BFF;
+        }
+
+        .section {
+            width: 100%;
+            padding: 20px;
+            /* Adjusted padding for all sections */
+            box-sizing: border-box;
+        }
+
         .image-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: auto;
-            width: 100%;
-            position: relative;
+            flex-wrap: wrap;
             gap: 2vw;
-            margin-top: 6vw;
-            cursor: pointer;
+            margin-top: -0.75vw;
         }
 
-        /* Add spacing between images */
         .image-wrapper {
             text-align: center;
             flex: 1;
-            max-width: 10vw;
+            max-width: 12vw;
         }
 
-        /* Style for image text */
+        .image-wrapper img {
+            width: 100%;
+            height: 30vw;
+            transition: transform .3s ease-in-out;
+        }
+
+        .image-wrapper img:hover {
+            transform: translateY(-2vw);
+        }
+
+        .image-wrapper:nth-child(1) {
+            --horizontal-offset: -30vw;
+            --vertical-offset: 0px;
+        }
+
+        .image-wrapper:nth-child(2) {
+            --horizontal-offset: -15vw;
+            --vertical-offset: 20px;
+        }
+
+        .image-wrapper:nth-child(3) {
+            --horizontal-offset: 0vw;
+            --vertical-offset: 0px;
+        }
+
+        .image-wrapper:nth-child(4) {
+            --horizontal-offset: 15vw;
+            --vertical-offset: 20px;
+            width: 369px;
+        }
+
+        .image-wrapper:nth-child(5) {
+            --horizontal-offset: 30vw;
+            --vertical-offset: 0px;
+        }
+
+        .image-container .image-wrapper:nth-child(2),
+        .image-container .image-wrapper:nth-child(4) {
+            margin-top: 5vw;
+        }
+
+        .about,
+        .contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        /* Ensure existing styles are retained */
+
+        .name-container {
+            position: absolute;
+            width: 26vw;
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            left: 0;
+            /* Final horizontal position */
+            top: 0;
+            /* Final vertical position */
+        }
+
+        .name {
+            position: absolute;
+            width: 26vw;
+            /* Initial width */
+            height: 10vh;
+            /* Initial height */
+            background-image: url('img/polaroids/big-name.png');
+            /* Specify your image URL */
+            background-size: contain;
+            /* Make the background image responsive */
+            background-repeat: no-repeat;
+            /* Prevent image duplication */
+        }
+
         .image-container p {
             margin-top: 5px;
             font-size: 2vw;
+            /* Responsive font size reduced */
             color: #EBE4CD;
             font-family: Sahitya;
             -webkit-text-stroke: 1px;
             -webkit-text-stroke-color: #EBE4CD;
         }
 
-        .image-wrapper img {
-            transition: transform 0.3s ease-in-out;
-            width: 100%;
+        /* Adjusted positioning for the navigation bar */
+        .nav-bar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        /* Padding for the top of the learning outcomes section */
+        #learning-outcomes {
+            margin-top: 0vw;
+            /* Adjusted margin-top to create space */
+        }
+
+        #about {
+            background-image: url(img/backgrounds/aboutme-background-new.png);
+            /* Background for learning outcomes */
+
+            background-size: cover;
+            /* Make the background image responsive */
+            background-position: center;
+        }
+
+        #contact {
+            background-image: url(img/backgrounds/contact-background-new.png);
+            /* Background for learning outcomes */
+            background-size: contain;
+            /* Make the background image responsive */
+        }
+
+        h2 {
+            font-family: "Zen Old Mincho";
+            letter-spacing: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            max-width: 45vw;
             height: auto;
+            text-align: center;
+            font-size: 4vw;
+            color: black;
         }
 
-        /* Hover effect to move the image up */
-        .image-wrapper img:hover {
-            transform: translateY(-2vw);
+        h4 {
+            font-family: "Garamond";
+            width: 40vw;
+            margin-left: 5vw;
+            margin-right: auto;
+            text-align: left;
+            display: block;
+            color: black;
+            font-size: 2.5vw;
         }
 
-        /* lower images 2 and 4 */
-        .image-container .image-wrapper:nth-child(2),
-        .image-container .image-wrapper:nth-child(4) {
-            margin-top: 5vw; 
+        h5 {
+            font-family: "Garamond";
+            width: 35vw;
+            margin-top: 6vw;
+            margin-left: 13vw;
+            margin-right: auto;
+            text-align: left;
+            display: block;
+            color: black;
+            font-size: 2.3vw;
+        }
+
+        h6 {
+            font-family: "Garamond";
+            width: 55vw;
+            margin-left: 3vw;
+            margin-right: auto;
+            text-align: center;
+            display: block;
+            color: black;
+            font-size: 2.5vw;
+        }
+
+        /*container for about me page*/
+        .color-box {
+            background-image: url(img/backgrounds/paper-background-2.jpg);
+            padding: 20px;
+            max-width: 60vw;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            height: auto;
+            box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.3);
+            border-radius: 5vw;
+            margin-top: 10vw;
+            margin-bottom: 10vw;
+        }
+
+        /*for each section*/
+        .content {
+            display: block;
+            position: relative;
+        }
+
+        .content--home .images {
+            right: 0;
+            top: 0;
+        }
+
+        .content--profession .images {
+            left: 0;
+            bottom: 0;
+        }
+
+        .content--home .image:nth-child(1) {
+            position: absolute;
+            right: 4vw;
+            top: -3vw;
+            transform: rotate(8deg);
+            transition: transform .5s ease-in-out;
+        }
+
+        .content--home .image:nth-child(2) {
+            position: absolute;
+            transform: rotate(-9deg);
+            right: -4vw;
+            top: -7vw;
+            transition: transform .5s ease-in-out;
+        }
+
+        .content--home .image:nth-child(1):hover {
+            transform: rotate(12deg);
+        }
+
+        .content--home .image:nth-child(2):hover {
+            transform: rotate(-13deg);
+        }
+
+        .images {
+            position: absolute;
+        }
+
+        .image {
+            height: auto;
+            max-width: 12vw;
+        }
+
+        .image--polaroid2 {
+            height: auto;
+            max-width: 12vw;
+            margin-left: -4vw;
+            transform: rotate(24.08deg);
+            box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.3);
+            transition: transform .5s ease-in-out;
+        }
+
+        .image--polaroid2:hover {
+            transform: rotate(30deg);
+        }
+
+        .content--note img {
+            position: absolute;
+            max-width: 40vw;
+            left: 2vw;
+            top: -4vw;
+            filter: saturate(-15);
+        }
+
+        .naturalpool img {
+            height: auto;
+            max-width: 12vw;
+            margin-left: 45vw;
+            top: -90vw;
+            transform: rotate(9deg);
+            box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.3);
+            transition: transform .7s ease-in-out;
+        }
+
+        .naturalpool img:hover {
+            transform: rotate(12deg);
+        }
+
+        .andicuri img {
+            height: auto;
+            max-width: 12vw;
+            margin-left: 54vw;
+            margin-top: -1000vh;
+            transform: rotate(-3deg);
+            box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.3);
+            transition: transform .7s ease-in-out;
+        }
+
+        .andicuri img:hover {
+            transform: rotate(-6deg);
+        }
+
+        .section .contact,
+        button {
+            border-radius: 50px;
+            width: 10vw;
+            background-color: #939D8E;
+            border: none;
+            height: 2vw;
+        }
+
+        .section .contact,
+        h2 {
+            font-family: Zen Old Micho;
+        }
+
+        .section .contact,
+        button,
+        a {
+            font-family: League Spartan Med;
+            color: #EBE4CD;
+            font-size: 1.5vw;
+            text-decoration: none;
+        }
+
+        .section .contact,
+        img {
+            width: 40vw;
+            margin-top: 5vw;
+
         }
     </style>
 </head>
-<body>
+
+<body style="background-image:url('img/backgrounds/new-enter-page.png');">
     <header>
         <div class="wrapHead">
-            <div id="brand">
-                <img src="logo.png" alt="Logo" class="logo">
+            <div class="name-container">
+                <div class="name"></div>
             </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
+            <nav class="nav-bar">
+                <a href="#learning-outcomes">Learning Outcomes</a>
+                <a href="#about">About Me</a>
+                <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
-    <div class="section section-1">
-        <!-- Content for section 1 -->
-    </div>
-    <div class="section section-2">
-        <div class="content">
-            <div class="image-container">
-                <div class="image-wrapper">
-                    <img src="image2.jpg" alt="Image 2">
-                    <p>Image 2</p>
-                </div>
-                <div class="image-wrapper">
-                    <img src="image3.jpg" alt="Image 3">
-                    <p>Image 3</p>
-                </div>
-                <div class="image-wrapper">
-                    <img src="image4.jpg" alt="Image 4">
-                    <p>Image 4</p>
-                </div>
+
+    <div class="section" id="learning-outcomes">
+        <div class="image-container">
+            <!-- Image 1 -->
+            <div class="image-wrapper">
+                <a href="lo1.html"><img src="img/polaroids/learning-outcome-1.png" alt="Image 1"></a>
+                <p>Interactive</p>
+            </div>
+            <!-- Image 2 -->
+            <div class="image-wrapper">
+                <img src="img/polaroids/learning-outcome-2.png" alt="Image 2">
+                <p>Development</p>
+            </div>
+            <!-- Image 3 -->
+            <div class="image-wrapper">
+                <img src="img/polaroids/learning-outcome-3.png" alt="Image 3">
+                <p>Iterative</p>
+            </div>
+            <!-- Image 4 -->
+            <div class="image-wrapper">
+                <img src="img/polaroids/learning-outcome-4.png" alt="Image 4">
+                <p>Professional</p>
+            </div>
+            <!-- Image 5 -->
+            <div class="image-wrapper">
+                <img src="img/polaroids/learning-outcome-5.png" alt="Image 5">
+                <p>Personal</p>
             </div>
         </div>
     </div>
-    <div class="section section-3">
-        <div class="content">
-            <div class="image-container">
-                <div class="image-wrapper">
-                    <img src="image5.jpg" alt="Image 5">
-                    <p>Image 5</p>
+
+    <div class="section about" id="about">
+        <div class="color-box">
+            <h2>HERE IS A BIT ABOUT ME</h2>
+            <!--area 1 text-->
+            <div class="content content--home">
+                <h4>i come from a teensy weensy little island in the caribbean, Aruba</h4>
+                <!--area 1 images-->
+                <div class="images">
+                    <img class="image image--polaroid" src="img/polaroids/dosplaya-polaroid.png">
+                    <img class="image image--polaroid" src="img/polaroids/pelican-polaroid.png">
                 </div>
-                <div class="image-wrapper">
-                    <img src="image6.jpg" alt="Image 6">
-                    <p>Image 6</p>
+            </div>
+            <!---area 2 text-->
+            <div class="content content--profession">
+                <h5>im currently a media & design student trying to build a portfolio.
+                    ive always been someone that likes creating things, and i’ve always loved anything to do with art.
+                </h5>
+                <!--are 2 image-->
+                <div class="images">
+                    <img class="image image--polaroid2" src="img/polaroids/marriott-polaroid.png">
                 </div>
-                <div class="image-wrapper">
-                    <img src="image7.jpg" alt="Image 7">
-                    <p>Image 7</p>
-                </div>
+            </div>
+            <!---area 3 text-->
+            <div class="content content--expectations">
+                <h6>what you can expect from me on here is a gallery of everything i have made including projects i’ve
+                    done.
+                    Including all the pictures seen here.</h6>
+            </div>
+            <!--area 3 images-->
+            <div class="content content--note">
+                <img src="img/polaroids/about-me-note.png">
+            </div>
+            <div class="naturalpool">
+                <img src="img/polaroids/naturalpool-polaroid.png">
+            </div>
+            <div class="andicuri">
+                <img src="img/polaroids/andicuri-polaroid.png">
             </div>
         </div>
     </div>
-    <div class="section section-4">
-        <div class="content">
-            <div class="image-container">
-                <div class="image-wrapper">
-                    <img src="image8.jpg" alt="Image 8">
-                    <p>Image 8</p>
-                </div>
-                <div class="image-wrapper">
-                    <img src="image9.jpg" alt="Image 9">
-                    <p>Image 9</p>
-                </div>
-                <div class="image-wrapper">
-                    <img src="image10.jpg" alt="Image 10">
-                    <p>Image 10</p>
-                </div>
-            </div>
-        </div>
+
+    <div class="section contact" id="contact">
+        <h2>Let's Get In Touch</h2>
+        <button><a class="button" href="mailto:email@email.de">Say hello</a></button>
+        <img src="img/polaroids/boat.png">
     </div>
-    <div class="section section-5">
-        <div class="content">
-            <div class="image-container">
-                <div class="image-wrapper">
-                    <img src="image11.jpg" alt="Image 11">
-                    <p>Image 11</p>
-                </div>
-                <div class="image-wrapper">
-                    <img src="image12.jpg" alt="Image 12">
-                    <p>Image 12</p>
-                </div>
-                <div class="image-wrapper">
-                    <img src="image13.jpg" alt="Image 13">
-                    <p>Image 13</p>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.section');
-            let currentSection = 0;
-            let isScrolling = false;
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
 
-            const scrollHandler = (event) => {
-                if (isScrolling) return;
-
-                if (event.deltaY > 0) {
-                    // Scrolling down
-                    if (currentSection < sections.length - 1) {
-                        currentSection++;
-                    }
-                } else {
-                    // Scrolling up
-                    if (currentSection > 0) {
-                        currentSection--;
-                    }
-                }
-
-                isScrolling = true;
-                sections.forEach((section, index) => {
-                    if (index <= currentSection) {
-                        section.style.transform = 'translateY(0)';
-                    } else {
-                        section.style.transform = 'translateY(100%)';
-                    }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
-
-                setTimeout(() => {
-                    isScrolling = false;
-                }, 700); // Ensure this matches the CSS transition duration
-            };
-
-            window.addEventListener('wheel', scrollHandler);
+            });
         });
     </script>
 </body>
+
 </html>

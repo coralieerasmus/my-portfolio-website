@@ -1,15 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="lo.css" type="text/css" rel="stylesheet">
-  <title>Coralie Erasmus</title>
-</head>
- <!----------background image------------>
- <a><body style="background-image:url(img/backgrounds/lo-1-background.png);"></a>
-    <body>   
 
-  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="lo.css" type="text/css" rel="stylesheet">
+    <title>Coralie Erasmus</title>
+</head>
+<!----------background image------------>
+<a>
+
+    <body style="background-image:url(img/backgrounds/lo-1-background.png);">
+</a>
+<header>
+    <div class="wrapHead">
+        <div class="name-container">
+            <div class="name"></div>
+        </div>
+        <nav class="nav-bar">
+            <a href="shapesv2.html">Learning Outcomes</a>
+            <a href="#about">About Me</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<body>
+    <div class="container">
+        <h2>Interactive Media Products</h2>
+        <h3>Research question here</h3>
+        <div class="accordion">
+            <div class="accordion-item">
+                <button id="accordion-button-1" aria-expanded="false"><span class="accordion-title">What I
+                        Did</span><span class="icon" aria-hidden="true"></span></button>
+                <div class="accordion-content">
+                    <p>Throughout semester 2, I developed two impactful prototypes.<br><br>
+
+                        First, <span class="highlight" id="highlight1">"Octo-cooked"</span>, an interactive paper game, fostered teamwork, communication, and time
+                        management skills, receiving positive feedback during trial runs.<br><br>
+
+                        Second, in a branding project, we created an <span class="highlight" id="highlight2">"Interactive website mockup"</span> using Figma. Seeking
+                        feedback from stakeholders like Mr. Amer and Jan enriched our understanding of project
+                        requirements and enhanced the prototypes' effectiveness.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title">How I Did
+                        It</span><span class="icon" aria-hidden="true"></span></button>
+                <div class="accordion-content">
+                    <p>We made Octo-Cooked interactive using paper and cardboard to conduct efficient user testing.
+                         Every aspect, from the paper burger ingredients to the utensils, was digital. <br><br>
+                        For the branding project, we used an interactive mockup on Figma
+                        to perform user testing efficiently, giving a clear preview of the final website.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button id="accordion-button-3" aria-expanded="false"><span class="accordion-title">How It
+                        Helped</span><span class="icon" aria-hidden="true"></span></button>
+                <div class="accordion-content">
+                    <p>Lorem ipsum dolor sit amet, <span class="highlight" id="highlight3">Highlight 3</span>consectetur
+                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum
+                        sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+                </div>
+            </div>
+        </div>
+        <div class="right-content">
+            <div id="popup1" class="popup">
+                <img src="img/learning outcomes/octocooked-pics.png" alt="Image 1">
+            </div>
+            <div id="popup2" class="popup">
+                <img src="img/learning outcomes/nathalie-interactive-pics.png" alt="Image 2">
+            </div>
+            <div id="popup3" class="popup">
+                <img src="img/learning outcomes/octocooked-pics.png" alt="Image 3">
+            </div>
+            <div id="popup4" class="popup">
+                <img src="image4.jpg" alt="Image 4">
+            </div>
+        </div>
+    </div>
+
+    <script defer src="lo.js"></script>
 </body>
+
 </html>
