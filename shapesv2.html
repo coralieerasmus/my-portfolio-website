@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coralie Erasmus</title>
-    <link href="main.css" type="text/css" rel="stylesheet">
+    
     <style>
         /* Ensure these styles are at the bottom of your existing CSS to prevent conflicts */
         @font-face {
@@ -31,10 +31,10 @@
             margin: 0;
             width: 100vw;
             height: auto;
-            background-size: cover;
             /* To fully cover the screen */
-            background-size: contain;
+            background-size: fill;
             /* Make the background image responsive */
+            background-repeat: no-repeat;
         }
 
         header {
@@ -76,6 +76,7 @@
             padding: 20px;
             /* Adjusted padding for all sections */
             box-sizing: border-box;
+            align-self: center;
         }
 
         .image-container {
@@ -196,16 +197,15 @@
         }
 
         #about {
-            background-image: url(img/backgrounds/aboutme-background-new.png);
+           
             /* Background for learning outcomes */
-
             background-size: cover;
             /* Make the background image responsive */
             background-position: center;
         }
 
         #contact {
-            background-image: url(img/backgrounds/contact-background-new.png);
+      
             /* Background for learning outcomes */
             background-size: contain;
             /* Make the background image responsive */
@@ -399,12 +399,54 @@
         img {
             width: 40vw;
             margin-top: 5vw;
-
         }
+
+        .more-info {
+    position: relative;
+    text-align: center;
+}
+
+.more-info .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: white; /* Ensure the text is visible on the image */
+}
+
+.more-info h2 {
+    margin: 0;
+    padding: 10px 0;
+}
+
+.more-info button {
+    margin: 10px 0;
+    text-decoration: none;
+    color: white;
+    background-color: #A78096;
+    padding: 10px 20px;
+    border-radius: 50px;
+    width: 12vw;
+    height: 3vw;
+    display: inline-block;
+}
+
+.more-info button:hover {
+    background-color: #a37a91;
+}
+
+.more-info img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
     </style>
 </head>
 
-<body style="background-image:url('img/backgrounds/new-enter-page.png');">
+<body style="background-image:url('img/backgrounds/Enter\ page.png');">
     <header>
         <div class="wrapHead">
             <div class="name-container">
@@ -445,6 +487,13 @@
                 <img src="img/polaroids/learning-outcome-5.png" alt="Image 5">
                 <p>Personal</p>
             </div>
+        </div>
+        <div class="more-info">
+            <div class="overlay">
+            <h2>Interactive</h2>
+            <button><a class="button" href="path/to/your.pdf" target="_blank">Download PDF</a></button>
+        </div>
+            <img src="img/polaroids/spiral.png" alt="Image 6"></a>
         </div>
     </div>
 

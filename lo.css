@@ -97,11 +97,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: Garamond;
-  color: var(--gray);
+  color: black;
   display: flex;
   min-height: 100vh;
   background-repeat: no-repeat;
   background-size: 100%;
+  
 }
 
 .container {
@@ -109,6 +110,7 @@ body {
   padding: 2rem;
   width: 40%;
   margin-top: 8vw;
+  margin-left: 4vw;
 }
 
 h2 {
@@ -202,6 +204,7 @@ h3{
     will-change: opacity, max-height;
     height: auto;
   }
+
   .accordion-content p {
     font-size: 1rem;
     font-weight: 300;
@@ -210,8 +213,9 @@ h3{
 }
 
 .highlight {
-  color: var(--highlight-dark-blue);
+  color: black;
   cursor: pointer;
+  background-color: #c599b2;
 }
 
 .highlight.selected {
