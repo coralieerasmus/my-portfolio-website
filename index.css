@@ -20,11 +20,9 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 0;
-  width: 100vw;
+  width: 100%;
   height: auto;
-  /* To fully cover the screen */
-  background-size: fill;
-  /* Make the background image responsive */
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -33,7 +31,7 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 30px;
+  padding: 2vw;
   background-color: #D9D2BE;
   position: fixed;
   top: 0;
@@ -47,13 +45,13 @@ header {
 
 .nav-bar {
   display: flex;
-  gap: 20px;
+  gap: 1.5vw;
 }
 
 .nav-bar a {
   text-decoration: none;
   color: #333;
-  font-size: 16px;
+  font-size: 1.2vw; /* Responsive font size */
   transition: color 0.3s;
   font-family: Raleway;
 }
@@ -64,7 +62,7 @@ header {
 
 .section {
   width: 100%;
-  padding: 20px;
+  padding: 2vw;
   /* Adjusted padding for all sections */
   box-sizing: border-box;
   align-self: center;
@@ -87,7 +85,7 @@ header {
 
 .image-wrapper img {
   width: 100%;
-  height: 30vw;
+  height: auto; /* Maintain aspect ratio */
   transition: transform .3s ease-in-out;
 }
 
@@ -132,10 +130,8 @@ header {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 50px 20px;
+  padding: 4vw;
 }
-
-/* Ensure existing styles are retained */
 
 .name-container {
   position: absolute;
@@ -145,66 +141,49 @@ header {
   justify-content: center;
   align-items: center;
   left: 0;
-  /* Final horizontal position */
   top: 0;
-  /* Final vertical position */
 }
 
 .name {
   position: absolute;
   width: 26vw;
-  /* Initial width */
   height: 10vh;
-  /* Initial height */
   background-image: url('img/polaroids/big-name.png');
-  /* Specify your image URL */
   background-size: contain;
-  /* Make the background image responsive */
   background-repeat: no-repeat;
-  /* Prevent image duplication */
 }
 
 .image-container p {
   margin-top: 5px;
   font-size: 2vw;
-  /* Responsive font size reduced */
   color: #EBE4CD;
   font-family: Sahitya;
   -webkit-text-stroke: 1px;
   -webkit-text-stroke-color: #EBE4CD;
 }
 
-/* Adjusted positioning for the navigation bar */
 .nav-bar {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 1.5vw;
+  right: 1.5vw;
 }
 
-/* Padding for the top of the learning outcomes section */
 #learning-outcomes {
   margin-top: 0vw;
-  /* Adjusted margin-top to create space */
 }
 
 #about {
- 
-  /* Background for learning outcomes */
   background-size: cover;
-  /* Make the background image responsive */
   background-position: center;
 }
 
 #contact {
-
-  /* Background for learning outcomes */
   background-size: contain;
-  /* Make the background image responsive */
 }
 
 h2 {
   font-family: "Zen Old Mincho";
-  letter-spacing: 20px;
+  letter-spacing: 2vw;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -249,10 +228,9 @@ h6 {
   font-size: 2.5vw;
 }
 
-/*container for about me page*/
 .color-box {
   background-image: url(img/backgrounds/paper-background-2.jpg);
-  padding: 20px;
+  padding: 2vw;
   max-width: 60vw;
   width: 100%;
   margin-left: auto;
@@ -265,7 +243,6 @@ h6 {
   margin-bottom: 10vw;
 }
 
-/*for each section*/
 .content {
   display: block;
   position: relative;
@@ -284,7 +261,7 @@ h6 {
 .content--home .image:nth-child(1) {
   position: absolute;
   right: 4vw;
-  top: -3vw;
+  top: -12vw;
   transform: rotate(8deg);
   transition: transform .5s ease-in-out;
 }
@@ -382,8 +359,7 @@ button,
 a {
   font-family: League Spartan Med;
   color: #EBE4CD;
-  font-size: 1.5vw;
-  text-decoration: none;
+  font-size: 1.3vw;
 }
 
 .section .contact,
@@ -393,43 +369,44 @@ img {
 }
 
 .more-info {
-position: relative;
-text-align: center;
+  position: relative;
+  text-align: center;
 }
 
 .more-info .overlay {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-z-index: 1;
-color: white; /* Ensure the text is visible on the image */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white; /* Ensure the text is visible on the image */
 }
 
 .more-info h2 {
-margin: 0;
-padding: 10px 0;
+  margin: 0;
+  padding: 10px 0;
+  font-size: 3vw; /* Responsive font size */
 }
 
 .more-info button {
-margin: 10px 0;
-text-decoration: none;
-color: white;
-background-color: #A78096;
-padding: 10px 20px;
-border-radius: 50px;
-width: 12vw;
-height: 3vw;
-display: inline-block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: white;
+  background-color: #A78096;
+  padding: 2vw;
+  border-radius: 50px;
+  width: 12vw;
+  height: 3vw;
+  display: inline-block;
 }
 
 .more-info button:hover {
-background-color: #a37a91;
+  background-color: #a37a91;
 }
 
 .more-info img {
-display: block;
-margin: 0 auto;
-max-width: 100%;
-height: auto;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
 }
