@@ -1,1 +1,1 @@
-#My semester 2 school portfolio
+#My semester 2 portfolio
