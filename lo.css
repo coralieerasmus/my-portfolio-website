@@ -192,7 +192,7 @@ h3{
   }
   button[aria-expanded='true'] + .accordion-content {
     opacity: 1;
-    max-height: 30em;
+    max-height: 70em;
     transition: all 200ms linear;
     will-change: opacity, max-height;
   }
@@ -237,6 +237,7 @@ h3{
     right: 15vw;
     transform: translateY(-50%);
     display: none;
+    padding-top:15vw ;
 }
 
 .popup img {
