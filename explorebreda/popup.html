@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Image</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .popup-content {
+            position: relative;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 100%;
+            max-height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content img {
+            max-width: 30vw;
+            max-height: 80vw;
+            border-radius: 10px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #1d0505;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .close-btn:hover {
+            background: #898686;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup-overlay" id="popup">
+        <div class="popup-content">
+            <button class="close-btn" id="closeBtn">&times;</button>
+            <img src="img/Pop-up.png" alt="Popup Image">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById("popup").style.display = "flex";
+            }, 5000);
+        
+            document.getElementById("closeBtn").addEventListener("click", function() {
+                document.getElementById("popup").style.display = "none";
+            });
+        });
+    </script>
+</body>
+</html>
