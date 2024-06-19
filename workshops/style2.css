@@ -1,0 +1,51 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #87CEEB;
+    font-family: Arial, sans-serif;
+    background-image: url(img/cobblestone.png);
+}
+
+#game-container {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    border: 2px solid #000;
+    overflow: hidden;
+    background-image: url(img/background.gif);
+    background-repeat: no-repeat;
+    background-size: cover; /* Adjust the image to cover the entire container */
+}
+
+#player {
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    width: 5vw;
+    height: 5vw;
+    background-image: url(img/bpakgea-what.gif);
+    background-repeat: no-repeat;  
+    background-size: cover; /* Adjust the image to cover the entire container */
+}
+
+.platform {
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    height: 20px;
+    background-color: #8B4513;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    background-color: white;
+}
